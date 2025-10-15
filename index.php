@@ -4,15 +4,18 @@ include 'vistas/vista_superior.php';
 
 ?>
 
+<!-- Vinculamos el CSS -->
 <link rel="stylesheet" href="css/estilos.css">
 
-<div class="contenedor">
-  <h1>Hola, este es mi proyecto universitario</h1>
-  <p>Bienvenido a la página.</p>
-  <a href="#" class="boton-redireccion">Haz clic aquí</a>
-</div>
+
+
+<!-- Aquí puedes agregar más contenido de la página -->
+<main>
+ 
+</main>
 
 <?php 
 
 include 'vistas/vista_inferior.php';
+
 ?>

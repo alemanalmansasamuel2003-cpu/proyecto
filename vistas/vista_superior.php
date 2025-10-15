@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="proyecto" content="proyecto universitario">
-  <title>Proyecto Crochet</title>
-  <link rel="stylesheet" href="css/estilos.css">
+<meta charset="UTF-8">
+<title>Mi pequeño mundo</title>
+<link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
+
 <header>
-  <h1>Mi Mundo de Crochet</h1>
+
+  <div class="logo-container">
+  <img src="imagenes/logo.png" alt="Mi logo" class="logo">  
+  </div>
+
+
   <nav>
-    <ul>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.php">Inicio</a></li>
-      <li><a href="materiales.php">Materiales</a></li>
-      <li><a href="herramientas.php">Herramientas</a></li>
-      <li><a href="productos.php">Productos</a></li>
-      <li><a href="tutoriales.php">Tutoriales</a></li>
-      <li><a href="contacto.php">Contacto</a></li>
+      <li><a href="accion.php">Accion</a></li>
+      <li><a href="coleccionables.php">Coleccionables</a></li>
+      <li><a href="legos.php">Legos</a></li>
+      <li><a href="contactos.php">contactos</a></li>
+      
     </ul>
+
+    <div class="hamburger-icon" id="hamburger-icon">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      
+    </div>
+
   </nav>
+  
 </header>
+
+<script src="script/hamburger-icon.js"></script>
+
+</body>
+
+
+</html>
