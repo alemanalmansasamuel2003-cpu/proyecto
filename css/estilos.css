@@ -1,104 +1,315 @@
-/* Header */
+/* =======================================================
+   RESET BÁSICO
+======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* =======================================================
+   HEADER GENERAL
+======================================================= */
 header {
+    background-color: #df741c;
+    padding: 50px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    transition: all 0.4s ease;
     position: relative;
-    background-color: #36d171;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
 }
 
-/* Logo container */
-header .logo-container {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 5px;
-    border-radius: 10px;
-    background: linear-gradient(to right, #ffcc00 50%, #00ccff 50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-header .logo-container .logo {
-    height: 50px;
-    width: auto;
-}
-
-/* Navegación */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    align-items: center;
-}
-
+/* =======================================================
+   NAVEGACIÓN PRINCIPAL
+======================================================= */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .nav-links li a {
+    display: inline-block;
+    padding: 10px 20px;
     text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: 0.3s;
+    color: rgb(240, 220, 220);
+    background-color: #5f0a0a;
+    border-radius: 8px;
+    box-shadow: 3px 3px 8px rgba(27, 14, 151, 0.5);
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links li a:hover {
-    color: orange;
-    background-color: rgba(0,0,0,0.2);
+    color: #07bae7;
+    box-shadow: 3px 3px 12px #36d171;
+    transform: translateY(-10px);
 }
 
-/* Hamburger icon */
-.hamburger-icon {
+/* =======================================================
+   HAMBURGUESA
+======================================================= */
+.hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    position: absolute;
-    top: 25px;
-    right: 20px;
-    gap: 4px;
+    gap: 5px;
+    margin-left: auto;
 }
 
-.bar {
+.hamburger div {
     width: 25px;
     height: 3px;
-    background-color: rgb(56, 35, 243);
-    transition: 0.3s;
+    background-color: rgb(240, 220, 220);
+    border-radius: 2px;
+    transition: all 0.5s ease;
 }
 
-/* Responsive */
-@media (max-width: 600px){
-    nav {
+header > .hamburger {
+    position: absolute;
+    right: 20px;
+    top: 10%;
+    transform: translateY(-50%);
+}
+
+/* Animación a "X" */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(50deg) translate(6px, 5px);
+}
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-50deg) translate(6px, -5px);
+}
+
+/* =======================================================
+   LOGO + NOMBRE DEL SITIO
+======================================================= */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.logo-container img {
+    display: block;
+    max-width: 100%;
+    height: 90px;
+    width: auto;
+    max-width: 90px;
+}
+
+.site-name {
+    margin: 10px 0 0 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.site-name:hover {
+    color: #6ad5f5;
+}
+
+.site-name::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #08db1a;
+    transition: width 0.3s;
+}
+
+.site-name:hover::after {
+    width: 100%;
+}
+
+/* =======================================================
+   CATEGORÍAS
+======================================================= */
+.dropdown {
+    position: relative;
+    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: 160px;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dropdown-content ul,
+.dropdown-content li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dropdown-content li a {
+    display: block;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: rgb(8, 8, 6);
+    text-decoration: none;
+    background-color: #daa025;
+    border: 1px solid rgb(241, 241, 239);
+    box-sizing: border-box;
+}
+
+.dropdown-content li a:hover {
+    color: black;
+    background-color: wheat;
+    border: 1px solid rgb(207, 29, 29);
+}
+
+/* Submenú activo */
+.dropdown.show .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Cierra submenú si el header no está expandido */
+header:not(.expandido) .dropdown-content {
+    display: none !important;
+}
+
+/* ======== AJUSTE DE TAMAÑO Y TEXTO EN SUBMENÚ ======== */
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: fit-content;        /* se ajusta al texto */
+    min-width: 150px;          /* ancho mínimo */
+    max-width: 200px;          /* evita que el texto se salga */
+    white-space: normal;       /* permite salto de línea si es necesario */
+    word-break: break-word;    /* corta palabras largas si exceden el ancho */
+    position: absolute;
+    left: 0;
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 1px 2px;         /* espacio interno más cómodo */
+    text-align: center;        /* centra texto para mejor aspecto */
+}
+
+/* Submenú activo */
+.dropdown.show .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Cierra submenú si el header no está expandido */
+header:not(.expandido) .dropdown-content {
+    display: none !important;
+}
+
+/* =======================================================
+   EFECTO HOVER EN ESCRITORIO
+======================================================= */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block !important;
+        position: absolute;
+        top: 100;
+        left: 0;
+        padding: 5px 0;
+    }
+
+    .dropdown-content li a {
+        background-color: #daa025;
+        color: black;
+    }
+
+    .dropdown-content li a:hover {
+        background-color: wheat;
+    }
+}
+
+/* =======================================================
+   RESPONSIVE (MÓVIL)
+======================================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+
+    .hamburger {
+        display: flex !important;
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 100px;
-        right: 0;
-        background-color: #333;
         width: 100%;
         flex-direction: column;
-        text-align: center;
-       
+        align-items: flex-start;
+        gap: 10px;
+        overflow: hidden;
+        max-height: 0;
     }
 
-    .nav-links li {
-        margin: 15px 0;
+    .nav-links.show {
+        max-height: 500px;
     }
 
-    .hamburger-icon{
-        display: flex;
-
+    .dropdown-content {
+        position: relative;
+        box-shadow: none;
+        display: none;
     }
-    .nav-links.show{
-        display: flex;
-        background-color:#232323;
+
+    .dropdown.show .dropdown-content {
+        display: block;
+    }
+
+    header.expandido {
+        background-color: #df741c;
+        padding-bottom: 30px;
+        overflow: visible; /* asegura que se vea el submenú */
+    }
+
+    /* Ajuste responsive del logo y nombre */
+    .logo-container img {
+        height: 70px;
+        height: auto;
+    }
+
+    .site-name {
+        font-size: 18px;
+        margin-top: 20px;
     }
 }
+
+/* =======================================================
+   ANIMACIÓN SUAVE AL ABRIR / CERRAR MENÚ HAMBURGUESA
+======================================================= */
+@media (max-width: 768px) {
+    .nav-links {
+        transition: all 0.6s ease;
+    }
+
+    .nav-links.show {
+        transition: all 0.6s ease;
+    }
+}
+

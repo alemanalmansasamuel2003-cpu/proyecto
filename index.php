@@ -1,21 +1,6 @@
-<?php 
-
-include 'vistas/vista_superior.php';
-
-?>
-
-<!-- Vinculamos el CSS -->
-<link rel="stylesheet" href="css/estilos.css">
+<?php require_once "vistas/vista_superior.php"?>
 
 
 
-<!-- Aquí puedes agregar más contenido de la página -->
-<main>
- 
-</main>
 
-<?php 
-
-include 'vistas/vista_inferior.php';
-
-?>
+<?php require_once "vistas/vista_inferior.php"?>
