@@ -3,28 +3,49 @@ console.log("cards Cargado");
 const dataCards = [
 /**/
   {
-    "title": "título del muñeco",
-    "url_image": "",
-    "desc": "El mejor de todos!!",
+    "title": "toji fushiguro",
+    "url_image": "imagenes/anime1.jpg",
+    "desc": "figura coleccionable de toji fushiguro!!",
     "cta": "Mostrar más ...",
-    "link": ""
+    "link": "Mine-World/anime.php"
   },
 /**/
   {
-    "title": "título del muñeco",
-    "url_image": "",
+    "title": "Megumi Fushiguro y Nobara Kugisaki",
+    "url_image": "imagenes/anime2.jpg",
+    "desc": "El mejor de todos!!",
+    "cta": "Mostrar más ...",
+    "link": "Mine-World/anime.php"
+  },
+/**/ 
+  {
+    "title": "Yūji Itadori y Satoru Gojō",
+    "url_image": "imagenes/anime3.jpg",
+    "desc": "El mejor de todos!!",
+    "cta": "Mostrar más ...",
+    "link": "Mine-World/anime.php"
+  },
+  {
+    "title": "Giyū Tomioka",
+    "url_image": "imagenes/anime4.jpg",
     "desc": "El mejor de todos!!",
     "cta": "Mostrar más ...",
     "link": ""
   },
-/**/ 
   {
-    "title": "título del muñeco",
-    "url_image": "",
+    "title": "tanjiro kamado",
+    "url_image": "imagenes/anime5.jpg",
     "desc": "El mejor de todos!!",
     "cta": "Mostrar más ...",
-    "link": ""
-  }
+    "link": "Mine-World/anime.php"
+  },
+  {
+    "title": "Monkey D. Luffy",
+    "url_image": "imagenes/anime6.jpg",
+    "desc": "El mejor de todos!!",
+    "cta": "Mostrar más ...",
+    "link": "Mine-World/anime.php"
+  },
 ];
 
 (function() {
@@ -50,10 +71,10 @@ const dataCards = [
             <div class="card_info">
                 <p class="card-title">${item.title}</p>
                 <p class="card-desc">${item.desc}</p>
-                <a class="card-cta" target="_blank" href="${item.link}">${item.cta}</a>
+                <a class="card-cta" href="${item.link}">${item.cta}</a>
             </div>
         </div>`
-      );
+      ); 
     },
   };
   CARD.init();

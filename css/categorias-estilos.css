@@ -1,0 +1,110 @@
+sigue igual /* =======================================================
+   ESTILOS DE LA PÁGINA DE ANIME
+======================================================= */
+
+.anime-main {
+  background-color: #fffdf8;
+  padding: 40px;
+  margin-top: 100px;
+  text-align: center;
+  
+}
+
+.anime-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+ 
+}
+
+/* Cada figura */
+.anime-card {
+  background: linear-gradient(180deg, #fff4e3, #ffe9c2);
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
+  width: 230px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.anime-card:hover {
+  transform: scale(1.05);
+}
+
+.anime-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #5f0a0a;
+}
+
+.anime-card h3 {
+  color: #5f0a0a;
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+}
+
+.anime-card p {
+  color: #3a2d1d;
+  font-size: 0.95rem;
+} 
+
+/* ====== Título sección Anime ====== */
+.titulo-anime{
+  --titulo-color: #5f0a0a;
+  --accent-1: #d6a16f;
+  --accent-2: #df741c;
+  --accent-3: #5f0a0a;
+
+  color: var(--titulo-color);
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .5px;
+  margin: 8px auto 24px;
+  padding: 0 8px;
+
+  /* Tamaño fluido en móviles/desktop */
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.8rem);
+
+  /* Sutil relieve */
+  text-shadow: 0 1px 0 rgba(0,0,0,.06);
+  position: relative;
+}
+
+/* Subrayado decorativo con degradado */
+.titulo-anime::after{
+  content: "";
+  display: block;
+  width: clamp(120px, 30vw, 360px);
+  height: 6px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px){
+  .titulo-anime{
+    margin: 6px auto 18px;
+  }
+  .titulo-anime::after{
+    height: 4px;
+    margin-top: 8px;
+  }
+}
+
+/* Animación sutil (respeta accesibilidad) */
+@media (prefers-reduced-motion: no-preference){
+  .titulo-anime{
+    animation: tituloAnimeIn .5s ease both;
+  }
+  @keyframes tituloAnimeIn{
+    from{ opacity: 0; transform: translateY(6px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+}
